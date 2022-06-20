@@ -1,9 +1,13 @@
 #!/bin/bash
-jq . reboot.json
-h=$(jq . reboot.json | jq .Servers)
-echo $h
-for i in ${#h[@]}
+
+#jq . reboot.json | jq .Servers[0]
+#jq . reboot.json | jq .Servers[1]
+len=$(jq . reboot.json | jq '.Servers | length')
+#echo $len
+i=0
+while [[ i -lt $len ]]
 do
-        aws ec2 reboot-instances --instance-ids ${h[$i]}
-        i=i+1
+        echo "Index is : " $i
+        aws ec2 reboot-instances --instance-ids $(jq . reboot.json | jq .Servers[$i] | sed 's/"//g')
+        ((i++))
 done
