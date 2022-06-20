@@ -1,10 +1,16 @@
---------------------------------------------
-|             DescribeInstances            |
-+------------+-----------------+-----------+
-|    Name    |    PrivateIP    |  Status   |
-+------------+-----------------+-----------+
-|  Host1     |  172.31.85.194  |  stopped  |
-|  Controller|  172.31.90.238  |  running  |
-|  Host2     |  172.31.92.142  |  stopped  |
-|  Host3     |  172.31.89.181  |  stopped  |
-+------------+-----------------+-----------+
+Index is :  0
+{
+    "StartingInstances": [
+        {
+            "CurrentState": {
+                "Code": 0,
+                "Name": "pending"
+            },
+            "InstanceId": "i-0483d5cd2b10c10b5",
+            "PreviousState": {
+                "Code": 80,
+                "Name": "stopped"
+            }
+        }
+    ]
+}
