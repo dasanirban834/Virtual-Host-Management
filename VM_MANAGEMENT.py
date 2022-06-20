@@ -4,16 +4,16 @@
 import requests
 import json
 
-url_start = "https://gitlab.com/api/v4/projects/36759585/repository/files/start%2Ejson?ref=main"
-url_reboot = "https://gitlab.com/api/v4/projects/36759585/repository/files/reboot%2Ejson?ref=main"
-url_stop = "https://gitlab.com/api/v4/projects/36759585/repository/files/stop%2Ejson?ref=main"
+url_start = "https://gitlab.com/api/v4/projects/<project-id>/repository/files/start%2Ejson?ref=main"
+url_reboot = "https://gitlab.com/api/v4/projects/<project-id>/repository/files/reboot%2Ejson?ref=main"
+url_stop = "https://gitlab.com/api/v4/projects/<project-id>/repository/files/stop%2Ejson?ref=main"
 
 server_list = list(input("Please enter the server names : ").split(" "))
 print("The list of server : ", server_list)
 payload = json.dumps({"branch": "main", "commit_message": "update file", "content": json.dumps({"Servers": server_list}, indent=4)})
 headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer glpat-Q3HTF8tjxJJkcLzDo_zX'
+        'Authorization': 'Bearer glpat-xxxxxxxxxxxxxx'
 }
 
 option1 = {"1":"Start", "2": "Reboot", "3": "Stop"}
