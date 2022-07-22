@@ -1,0 +1,9 @@
+include:
+  - local: '.start.yml'
+
+#include:
+#   - local: '.reboot.yml'
+
+
+include:
+   - local: '.stop.yml'

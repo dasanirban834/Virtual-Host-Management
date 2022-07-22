@@ -1,0 +1,24 @@
+stages:
+    - Do_Prechecks
+    - Stop_Action
+
+Do_Prechecks:
+    stage: Do_Prechecks
+    script:
+        - chmod +x stop_prechecks.sh
+        - sh stop_prechecks.sh
+    tags:
+        - gitlab-runner-test
+    only:
+        changes:
+            - stop.json
+Stop_Action:
+    stage: Stop_Action
+    script:
+        - chmod +x stop.sh
+        - sh stop.sh
+    tags:
+        - gitlab-runner-test
+    only:
+        changes:
+            - stop.json
